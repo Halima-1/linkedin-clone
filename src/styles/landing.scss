@@ -1,0 +1,112 @@
+@import "./_variables.scss";
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero {
+    width: 90%;
+    @include flex;
+    margin: auto;
+
+
+    &-text {
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        align-content: center;
+        align-self: center;
+        width: 50%;
+        margin: 0 auto;
+
+        h2 {
+            width: 80%;
+            color: grey;
+            font-weight: 500;
+            font-size: 2.7rem;
+            // margin: 0 auto;
+        }
+
+        button {
+            width: 60%;
+            border: 1px solid rgb(63, 63, 65);
+            margin: 10px 0;
+            padding: 15px 0;
+            border-radius: 20px;
+            color: rgb(63, 63, 65);
+            cursor: pointer;
+
+
+
+            b {
+                margin: 0;
+                // margin-bottom: 20px;
+            }
+        }
+
+        .microsoft {
+            @include flex;
+            justify-content: center;
+            gap: 20px;
+            color: rgb(63, 63, 65);
+            padding: 7px 0;
+
+            img {
+                width: 30px;
+                height: 30px;
+                // border-radius: 100%;
+            }
+
+            b {
+                margin-top: 10px
+            }
+        }
+
+        .google {
+            @include flex;
+            text-align: left;
+            background-color: rgb(30, 101, 206);
+            color: white;
+            border: none;
+            padding: 7px 0;
+            padding-left: 6px;
+
+            img {
+                width: 30px;
+                height: 30px;
+                border-radius: 100%;
+                // margin-top: 20px;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+
+        .term {
+            width: 60%;
+            // margin: 10px auto;
+            text-align: center;
+            color: rgb(63, 63, 65);
+            line-height: 30px;
+            font-size: 14px;
+
+            a {
+                text-decoration: none;
+                font-size: 14px;
+
+            }
+        }
+    }
+
+    &-img {
+        width: 50%;
+        align-self: center;
+
+        img {
+            width: 100%;
+        }
+    }
+}
