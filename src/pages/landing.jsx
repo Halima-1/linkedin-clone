@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../styles/landing.scss"
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi'
 
@@ -82,8 +82,56 @@ carousel =<>
     else{
         return
     }
+            const [currentIndex, setCurrentIndex] = useState(0);
+          const mobileCarousel =[{image:"https://media.istockphoto.com/id/1299975932/photo/3d-illustration-of-smiling-cute-man-working-at-the-desk-in-modern-office-cartoon-happy.jpg?s=612x612&w=0&k=20&c=S7Nb-spsO_bLodTJJx7coekkVR040DEG5utWCkv6NY0=",
+        text:"Find and land your next job"
+        },
+          {image:"https://media.istockphoto.com/id/485851251/photo/cheerful-businesswoman-lying-on-couch.jpg?s=612x612&w=0&k=20&c=JLwrvD-8AJ7y_t2D7qq-nOVkvkDjhHHaEGtA1MiU4Y0="
+          ,text:"Build your network on the go"
+        },
+          {image:"https://media.istockphoto.com/id/1399203332/vector/illustration-of-a-person-working-with-a-computer.jpg?s=612x612&w=0&k=20&c=rxjRkiPhexHp7Ufkm_ulTMyatdhR_I8jRRcKSQeCbBQ=",
+        text:"Stay ahead with curated content for your career"
+        }
+
+        ]
+            // Auto change image every 3 seconds
+            useEffect(() => {
+              const interval = setInterval(() => {
+                setCurrentIndex((prevIndex) =>
+                  prevIndex === mobileCarousel.length - 1 ? 0 : prevIndex + 1
+                );
+              }, 3000);
+          
+              return () => clearInterval(interval); // cleanup
+            }, []);
     return (
         <>
+        <section className='mobile-carousel'>
+        <div className="carousel" style={{ textAlign: "center" }}>
+      <img
+        src={mobileCarousel[currentIndex].image}
+        alt="carousel"
+      />
+      <b>{mobileCarousel[currentIndex].text}</b>
+      <div style={{ marginTop: "10px" }}>
+        {mobileCarousel.map((_, index) => (
+          <span
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            style={{
+              cursor: "pointer",
+              fontSize: "20px",
+              margin: "0 5px",
+              color: currentIndex === index ? "black" : "lightgray",
+            }}
+          >
+            ●
+          </span>
+        ))}
+      </div>
+    </div>
+
+        </section>
         <section className='hero'>
             <div className='hero-text'>
                 <h2>Welcome to your professional community</h2>
