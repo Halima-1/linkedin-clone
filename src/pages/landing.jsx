@@ -18,16 +18,32 @@ function Landing() {
 //     <BiChevronRight onclick={nextCarousel}/>
 // `
 //     }
-     if(index === 1){
-        document.getElementById("open").innerHTML =`
-        <div class="icon">
-        <svg onClick="prevCarousel" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-      </svg>
-      
-      <svg onClick="nextCarousel" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-      </svg>
+let carousel ;
+if (index ===0){
+    carousel =<>
+     <div class="icon">
+<BiChevronLeft className='hide' />
+
+<BiChevronRight onClick={nextCarousel}/>
+
+</div>
+     <div id='open-text'>
+        <h2>
+            Let the right people know you are open to work
+        </h2>
+        <p>With the open to work feature, you can privately tell recruiters or publicly share with the linkedIn community that you're looking for new job opportunities. </p>
+    </div>
+    <div id="open-img">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3RkPTBcKCClXkFq5SZokofF08Ahe9X2DZFA&s" alt="open to work image" />
+    </div>
+    </>
+}
+     else if(index === 1){
+carousel =<>
+<div className="icon">
+<BiChevronLeft onClick={prevCarousel}/>
+
+<BiChevronRight onClick={nextCarousel}/>
 </div>
         <div id='open-text'>
         
@@ -37,22 +53,17 @@ function Landing() {
 <p>Sending messages to people you know is a great way to strengthen relationships as you take the next step in your career. </p>
 </div>
 <div id="open-img">
+    <img src="https://media.istockphoto.com/id/2191299471/photo/confident-latin-american-businesswoman-financial-accountant-using-calculator-and-pen-at.jpg?s=612x612&w=0&k=20&c=nXbF9quNntHXe2sPQschiduwz0JBFBA68MDTjQwXq8U=" alt="" />
 </div>
-
-
-`
+</>
     }
 
     else if(index === 2){
-        document.getElementById("open").innerHTML =`
-        <div class="icon">
-        <svg onClick={prevCarousel} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-      </svg>
-      
-      <svg onClick={nextCarousel} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-      </svg>
+        carousel = <>
+        <div className="icon">
+        <BiChevronLeft onClick={prevCarousel}/>
+
+<BiChevronRight className='hide'/>
 </div>
         <div id='open-text'>
 
@@ -62,12 +73,15 @@ function Landing() {
 <p>From live videos to stories to newsletters and more, LinkedIn is full of ways to stay upto date on latest discussions in your industry. </p>
 </div>
 <div id="open-img">
-</div>`
+    <img src="https://media.istockphoto.com/id/2188611328/photo/two-colleagues-collaborating-in-a-modern-office-environment.
+    jpg?s=612x612&w=0&k=20&c=KXPHnComKS2R4iPUA2WUvE7r4YLXWNc_qYLVq4gihek=" alt="two people getting updates online" />
+</div>
+        </>
 
     }
-    // else{
-    //     return
-    // }
+    else{
+        return
+    }
     return (
         <>
         <section className='hero'>
@@ -171,44 +185,59 @@ function Landing() {
             </div>
         </section>
         <section id="open">
-        <div id='open-text'>
-        <div class="icon">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-</svg>
-
-<svg onClick={nextCarousel} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-</svg>
-
-</div>
-        <h2>
-            Let the right people know you are open to work
-        </h2>
-        <p>With the open to work feature, you can privately tell recruiters or publicly share with the linkedIn community that you're looking for new job opportunities. </p>
-    </div>
-    <div id="open-img">
-        <img src="../src/assets/open to work.jpg" alt="open to work image" />
-    </div>
+       {carousel}
         </section>
         <section className="explore">
-            <div className='explore-text'>
-                <h2>Discover the best software tools</h2>
-                <p>Connect with buyers who have first-hand experience to find the best products for you</p>
+        
+    <div className="open-img">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdoPU-FuOG5yO0tIx8MvpCJtO31tQarjI6A&s" alt="open to work image" />
+    <h2>Connect with people who can help</h2>
+    <button>Find people you know</button>
+    </div>
+    <div className="open-img">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRe2zE7vQxdvF4WtUkdCGROBWAZCC_yGaFpg&s" alt="open to work image" />
+    <h2>Learn the skill you need to succeed</h2>
+    <select name="" id="">Choose a topic
+        <option value="Artificial Intelligence">Artificial Intelligence</option>
+        <option value="Artificial Intelligence">Business Analysis and strategy</option>
+        <option value="Artificial Intelligence">Business Software tools</option>
+        <option value="Artificial Intelligence">Career development</option>
+        <option value="Artificial Intelligence">Customer service </option>
+        <option value="Artificial Intelligence">Diversity, Equity, and Inclusion</option>
+        <option value="Artificial Intelligence">Artificial Intelligence</option>
+        <option value="Artificial Intelligence">Artificial Intelligence</option>
+        <option value="Artificial Intelligence">Artificial Intelligence</option>
+
+    </select>
+    </div>
+        </section>
+        <section className="find explore">
+            <div className='find-text'>
+                <h2>Who's LinkedIn for?</h2>
+                <p>Anyone looking to navigate there professional life</p>
+                <div className="find-btn">
+                <a href="">
+                    <span>Find a Co worker or classmate</span>
+                    <BiChevronRight />
+                </a>
+                <a href="">
+                    <span>Find a new job</span>
+                    <BiChevronRight />
+                </a><a href="">
+                    <span>Find a Course training</span>
+                    <BiChevronRight />
+                </a>
             </div>
-            <div className="explore-btn">
-                <button>E-commerce platform</button>
-                <button>CRM Software</button>
-                <button>Human Resources Management system</button>
-                <button>Recruiting software</button>
-                <button>Project Management Moftware</button>
-                <button>Project Management Software</button>
-                <button>Help Desk Software</button>
-                <button>Social Networking Software</button>
-                <button>Desk Publishing Software</button>
-                <button>Show all</button>
+            </div>
+            <div className="find-img">
+                <img src="https://media.istockphoto.com/id/1969855088/photo/women-students-in-classroom-and-computer-for-education-e-learning-and-studying-or-writing.jpg?s=612x612&w=0&k=20&c=QY-FJjtQdR_nAJ9q2FnwnqnWccQY87hS2xwqcjkfsSE=" alt="Two students searching online" />
             </div>
         </section>
+        <section className="join">
+            <h2>Join your colleagues, classmates and friends on LinkedIn.</h2>
+            <button>Get started</button>
+        </section>
+        {/* stopppppp */}
         <section className="explore">
             <div className='explore-text'>
                 <h2>Keep your mind sharp with Games</h2>

@@ -117,7 +117,7 @@ body {
 }
 
 .explore {
-    width: 100%;
+    width: 90%;
     @include flex;
     align-self: center;
     align-items: center;
@@ -188,7 +188,7 @@ body {
 }
 
 #open {
-    width: 100%;
+    width: 90%;
     @include flex;
     align-self: center;
     align-items: center;
@@ -197,18 +197,23 @@ body {
     position: relative;
 
     .icon {
-        width: 80%;
+        width: 90%;
         @include flex;
         align-self: center;
         position: absolute;
-        top: 150px;
+        top: 210px;
 
         svg {
             width: 30px;
             height: 30px;
             background-color: rgb(0, 0, 0, 0.7);
             color: white;
+            border-radius: 100%;
         }
+    }
+
+    .hide {
+        visibility: hidden;
     }
 
     &-text {
@@ -218,7 +223,7 @@ body {
             width: 70%;
             font-size: 2rem;
             font-weight: 500;
-            color: rgb(63, 63, 65);
+            color: rgb(245, 40, 40);
         }
 
         p {
@@ -230,5 +235,159 @@ body {
 
     &-img {
         width: 45%;
+
+        img {
+            border-radius: 100%;
+            width: 400px;
+            height: 400px;
+        }
+    }
+}
+
+.open-img {
+    width: 45%;
+
+    img {
+        border-radius: 100%;
+        width: 300px;
+        height: 300px;
+        object-position: center;
+
+    }
+
+    h2 {
+        width: 70%;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: rgb(63, 63, 65);
+    }
+
+    button,
+    select {
+        width: max-content;
+        border: 1px solid rgb(63, 63, 65);
+        margin: 10px;
+        padding: 10px 15px;
+        border-radius: 20px;
+        color: rgb(63, 63, 65);
+        cursor: pointer;
+    }
+}
+
+.find {
+    &-text {
+
+        h2 {
+            // width: 70%;
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: rgb(245, 40, 40);
+        }
+
+        p {
+            // width: 70%;
+            color: rgb(63, 63, 65);
+
+        }
+    }
+
+    &-btn {
+
+        display: flex;
+        flex-direction: column;
+
+        a {
+            text-decoration: none;
+            color: rgb(63, 63, 65);
+            // border: 1px solid rgb(63, 63, 65);
+            // border-radius: 20px;
+            margin-top: 20px;
+            padding: 15px;
+            width: 80%;
+            background-color: rgb(218, 218, 245);
+            @include flex;
+
+            svg {
+                font-size: 25px;
+            }
+        }
+    }
+
+    &-img {
+        width: 50%;
+
+        img {
+            border-radius: 100%;
+            width: 100%;
+            height: 500px;
+            object-fit: fill;
+            object-position: center;
+        }
+    }
+}
+
+.join {
+    width: 70%;
+    margin: auto;
+
+    h2 {
+        // width: 70%;
+        font-size: 2.2rem;
+        font-weight: 500;
+        // color: rgb(245, 40, 40);
+    }
+
+    button {
+        width: max-content;
+        border: none;
+        margin: 10px;
+        padding: 10px 15px;
+        border-radius: 20px;
+        color: rgb(249, 249, 250);
+        cursor: pointer;
+        background-color: rgb(23, 92, 170);
+    }
+}
+
+.footer {
+    @include flex;
+    width: 85%;
+    margin: auto;
+
+    div {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            text-decoration: none;
+            color: rgb(63, 63, 65);
+            margin-bottom: 10px;
+        }
+
+        img {
+            width: 120px;
+            margin: 0;
+            margin-bottom: 20px
+        }
+    }
+}
+
+.footer2 {
+    @include flex;
+    width: 95%;
+    margin: auto;
+    // gap: 5px;
+
+    a {
+        text-decoration: none;
+        color: rgb(63, 63, 65);
+        font-size: 12px;
+        // margin-bottom: 10px;
+    }
+
+    img {
+        width: 120px;
+        margin: 0;
+        margin-bottom: 20px
     }
 }
