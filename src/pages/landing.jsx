@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/landing.scss"
+import "../styles/landing.scss"
+
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi'
+import Header from '../components/header'
 
 function Landing() {
     const [index,setIndex] =useState(localStorage.getItem("index")? JSON.parse(localStorage.getItem("index")): 0)
@@ -106,6 +109,7 @@ carousel =<>
             }, []);
     return (
         <>
+        <Header />
         <section className='mobile-carousel'>
         <div className="carousel" style={{ textAlign: "center" }}>
       <img
@@ -130,7 +134,6 @@ carousel =<>
         ))}
       </div>
     </div>
-
         </section>
         <section className='hero'>
             <div className='hero-text'>
@@ -286,7 +289,61 @@ carousel =<>
             <button>Get started</button>
         </section>
         {/* stopppppp */}
-       
+        <section className="footer">
+            <div>
+                <img src="../../src/assets/linkedin-image.png" alt="linkedin logo" />
+            </div>
+            <div>
+                <b>General</b>
+                <a href="#">Sign up</a>
+                <a href="#">Help center</a>
+                <a href="#">About</a>
+                <a href="#">Press</a>
+                <a href="#">Blog</a>
+                <a href="#">Careers</a>
+                <a href="#">Developers</a>
+
+
+            </div>
+            <div>
+                <b>Browse LinkedIn</b>
+                <a href="#">Learning</a>
+                <a href="#">Jobs</a>
+                <a href="#">Games</a>
+                <a href="#">Salary</a>
+                <a href="#">Mobile</a>
+                <a href="#">Services</a>
+                <a href="#">Products</a>
+                <a href="#">Top companies hub</a>
+
+
+            </div><div>
+                <b>Business solutions</b>
+                <a href="#">Talent</a>
+                <a href="#">Marketing</a>
+                <a href="#">Sales</a>
+                <a href="#">Learning</a>
+
+
+            </div>
+            <div>
+                <b>Directories</b>
+                <a href="#">Members</a>
+                <a href="#">Job</a>
+                <a href="#">Companies</a>
+                <a href="#">Featured</a>
+                <a href="#">Learning</a>
+                <a href="#">Post</a>
+                <a href="#">Articles</a>
+                <a href="#">Schools</a>
+                <a href="#">News</a>
+                <a href="#">News letter</a>
+                <a href="#">Services</a>
+                <a href="#">Products</a>
+                <a href="#">Advice</a>
+                <a href="#">People search</a>
+            </div>
+        </section>
         </>
     )
 }

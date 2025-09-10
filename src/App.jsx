@@ -12,7 +12,6 @@ function App() {
 const Layout =()=>{
   return(
     <>
-    <Header />
     <Outlet />
     <Footer />
     </>
