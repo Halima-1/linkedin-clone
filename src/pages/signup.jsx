@@ -19,8 +19,47 @@ const handleChange = (e) => {
     setNewUser({ ...newUser, [e.target.name]: value }) 
  };
 const nextBtn =()=>{
-    setFormIndex(formIndex + 1)
+    if(email && password){
+        setFormIndex(formIndex + 1)
+        users.push(newUser)
+    }
+    else{
+        newErr.err ="kindly input your email to sign up"
+        setErrData(newErr);
+    }
 }
+const handleValidation =()=>{
+    const newErr={}
+    if(fname && lname){
+        newErr.fname ="kindly input your first name"
+    }
+    else if(fname && lname){
+        newErr.lname ="kindly input your last name"
+    }
+    else if(
+        newErr.fname ="kindly input your name"
+    )
+    setErrData(newErr);
+
+}
+const submit =()=>{
+    handleValidation
+    if(!errData){
+        return;
+    }
+    const users = localStorage.getItem("users")
+      ? JSON.parse(localStorage.getItem("users"))
+      : [];
+
+    const emailValidation = users.find((item) => item.email == formData.email);
+    if (emailValidation) {
+      console.log("Email Already Exist");
+      return;
+    }
+
+    users.push(newUser);
+}
+// form content
 let formContent;
 if (formIndex ===0){
     formContent = <>
@@ -29,20 +68,23 @@ if (formIndex ===0){
     Stay up to date on your Industry .
 </h2>
     <div>
+        {errData.email && <span>{errData.email}</span>}
     <label htmlFor="email">Email or phone</label>
-    <input type="text" id="email" value={newUser.email} placeholder='email or phone number' onChange={handleChange} />
+    <input type="text" id="email"onChange={handleChange} value={newUser.email} placeholder='email or phone number'  />
     </div>
     <div>
+    {errData.password && <span>{errData.password}</span>}
     <label htmlFor="password">password</label>
-    <input type="text" id="password" value={newUser.password} placeholder='password' onChange={handleChange}/>
+    <input type="text" id="password"onChange={handleChange} value={newUser.password} placeholder='password' />
     </div>
-    <input onClick={nextBtn} className="btn" value={"Join now"} />
+    <input  type="submit" onClick={nextBtn} className="btn" value={"Join now"} />
 </form></>
 }
 else if(formIndex ===1){
     formContent =<>
      <form action="">
     <div>
+    {errData.err && <span>{errData.e}</span>}
     <label htmlFor="fname">First name</label>
     <input type="text" value={newUser.fname} placeholder='First name' onChange={handleChange} />
     </div>
@@ -64,7 +106,7 @@ else if(formIndex ===1){
                     </b></a> <a href=""><b>Privacy policy</b></a> and
                 <a href=""><b>Cookie policy</b></a>
                 </p>
-              <input className="agree" onClick={nextBtn} value={"Agree and join"} />
+              <input className="agree" onClick={submit} value={"Agree and join"} />
               <p className="or">or</p>
                 <button className='google'>
                     <p>
