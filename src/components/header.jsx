@@ -67,7 +67,7 @@ function Header() {
             <div>
                 {/* <img src="" alt="" /> */}
             <NavLink
-              to={"/login"}
+              to={"/signup"}
             >
                 Sign up
             </NavLink>
