@@ -8,7 +8,7 @@ function Header() {
         <>
         <header>
             <nav>
-            <img src="src/assets/linkedin-image.png" alt="" />
+            <img src="../../src/assets/linkedin-image.png" alt="" />
             <ul>
             <li>
             <NavLink

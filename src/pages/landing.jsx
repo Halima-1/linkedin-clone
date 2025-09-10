@@ -141,12 +141,12 @@ carousel =<>
                     <span>dahunsiolajumoke18@gmail.com</span> 
                     </p>
                 {/* <span className="google"> */}
-                    <img src="src/assets/google logo.png" alt="google logo" />
+                    <img src="../../src/assets/google logo.png" alt="google logo" />
                     {/* </span>  */}
                    
                 </button>
                 <button className='microsoft'>
-                    <img src="src/assets/microsoft.png" alt="google logo" />
+                    <img src="../../src/assets/microsoft.png" alt="google logo" />
                     <b>Continue with microsoft</b>
                 </button>
                 <button><b>Sign in with email</b></button>
@@ -157,7 +157,7 @@ carousel =<>
                 <p className='term'>New to LinkedIn? <a href=""><b>join now</b></a></p>
             </div>
             <div className="hero-img">
-                <img src="src/assets/hero image.jpg" alt="man holding laptop avatar" />
+                <img src="../../src/assets/hero image.jpg" alt="man holding laptop avatar" />
             </div>
         </section>
         <section className="explore content">
