@@ -86,7 +86,7 @@ carousel =<>
           const mobileCarousel =[{image:"https://media.istockphoto.com/id/1299975932/photo/3d-illustration-of-smiling-cute-man-working-at-the-desk-in-modern-office-cartoon-happy.jpg?s=612x612&w=0&k=20&c=S7Nb-spsO_bLodTJJx7coekkVR040DEG5utWCkv6NY0=",
         text:"Find and land your next job"
         },
-          {image:"https://media.istockphoto.com/id/485851251/photo/cheerful-businesswoman-lying-on-couch.jpg?s=612x612&w=0&k=20&c=JLwrvD-8AJ7y_t2D7qq-nOVkvkDjhHHaEGtA1MiU4Y0="
+          {image:"https://media.istockphoto.com/id/1267083786/photo/woman-sitting-a-blue-couch-working-on-a-laptop-paper-craft.jpg?s=612x612&w=0&k=20&c=Co6qO0yfJyQrYhse02vzFJvKU0b-uKLWOrgMZf7vCAc="
           ,text:"Build your network on the go"
         },
           {image:"https://media.istockphoto.com/id/1399203332/vector/illustration-of-a-person-working-with-a-computer.jpg?s=612x612&w=0&k=20&c=rxjRkiPhexHp7Ufkm_ulTMyatdhR_I8jRRcKSQeCbBQ=",
@@ -141,12 +141,12 @@ carousel =<>
                     <span>dahunsiolajumoke18@gmail.com</span> 
                     </p>
                 {/* <span className="google"> */}
-                    <img src="../src/assets/google logo.png" alt="google logo" />
+                    <img src="src/assets/google logo.png" alt="google logo" />
                     {/* </span>  */}
                    
                 </button>
                 <button className='microsoft'>
-                    <img src="../src/assets/microsoft.png" alt="google logo" />
+                    <img src="src/assets/microsoft.png" alt="google logo" />
                     <b>Continue with microsoft</b>
                 </button>
                 <button><b>Sign in with email</b></button>
@@ -157,7 +157,7 @@ carousel =<>
                 <p className='term'>New to LinkedIn? <a href=""><b>join now</b></a></p>
             </div>
             <div className="hero-img">
-                <img src="../src/assets/hero image.jpg" alt="man holding laptop avatar" />
+                <img src="src/assets/hero image.jpg" alt="man holding laptop avatar" />
             </div>
         </section>
         <section className="explore content">
@@ -286,19 +286,7 @@ carousel =<>
             <button>Get started</button>
         </section>
         {/* stopppppp */}
-        <section className="explore">
-            <div className='explore-text'>
-                <h2>Keep your mind sharp with Games</h2>
-            </div>
-            <div className="explore-btn">
-                <button>Pinpoint</button>
-                <button>Queen</button>
-                <button>Crossclimb</button>
-                <button>Tango</button>
-                <button>Zip</button>
-                <button>Mini Sudoku</button>
-            </div>
-        </section>
+       
         </>
     )
 }

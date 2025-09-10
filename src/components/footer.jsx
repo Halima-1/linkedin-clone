@@ -6,7 +6,7 @@ function Footer() {
         <>
         <section className="footer">
             <div>
-                <img src="../src/assets/linkedin-image.png" alt="linkedin logo" />
+                <img src="src/assets/linkedin-image.png" alt="linkedin logo" />
             </div>
             <div>
                 <b>General</b>
@@ -60,7 +60,7 @@ function Footer() {
             </div>
         </section>
         <section className="footer2">
-            <img src="../src/assets/linkedin-image.png" alt="linkedIn logo" />
+            <img src="src/assets/linkedin-image.png" alt="linkedIn logo" />
             <a href="#">About</a>
             <a href="#">Accessibility</a>
                 <a href="#">User agreement</a>
