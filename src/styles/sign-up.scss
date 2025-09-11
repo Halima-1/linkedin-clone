@@ -19,9 +19,10 @@ form {
     }
 
     div {
-        width: 100%;
+        width: 90%;
         display: flex;
         flex-direction: column;
+        margin: 0 auto;
         margin-top: 10px;
 
         input {
@@ -39,7 +40,7 @@ form {
     }
 
     input {
-        width: 100%;
+        width: 90%;
         padding: 7px;
         border: 1px solid gray;
         border-radius: 10px;
@@ -108,7 +109,7 @@ form {
 
 .hero-text {
     display: none;
-    flex-direction: column-reverse;
+    flex-direction: column;
     // align-items: center;
     align-content: center;
     align-self: center;
@@ -129,6 +130,25 @@ form {
             margin: 0;
             // margin-bottom: 20px;
         }
+    }
+
+    .agree {
+        width: 90%;
+        padding: 10px 0;
+        border: 1px solid gray;
+        border-radius: 10px;
+        outline: none;
+        margin-top: 10px;
+        background-color: rgb(30, 101, 206);
+        color: white;
+        text-align: center;
+    }
+
+    .or {
+        margin: auto;
+        margin-top: 10px;
+        color: rgb(33, 33, 34);
+
     }
 
     .term {
