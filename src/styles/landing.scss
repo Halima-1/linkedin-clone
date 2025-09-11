@@ -13,7 +13,7 @@ body {
 
 
     &-text {
-        display: flex;
+        display: flex !important;
         flex-direction: column-reverse;
         // align-items: center;
         align-content: center;
@@ -521,8 +521,8 @@ body {
         margin: 0 auto;
         gap: 5px;
         margin-top: 30px;
-        position: absolute;
-        bottom: 0;
+        // position: absolute;
+        // bottom: 0;
 
         a {
             text-decoration: none;

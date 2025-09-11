@@ -4,10 +4,10 @@ import "../styles/landing.scss"
 
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi'
 import Header from '../components/header'
-
+import { useNavigate, Link } from 'react-router-dom'
 function Landing() {
     const [index,setIndex] =useState(localStorage.getItem("index")? JSON.parse(localStorage.getItem("index")): 0)
-
+    const navigate =useNavigate()
     const nextCarousel = ()=>{
         setIndex(index + 1)
         localStorage.setItem("index", index)
@@ -152,12 +152,13 @@ carousel =<>
                     <img src="../../src/assets/microsoft.png" alt="google logo" />
                     <b>Continue with microsoft</b>
                 </button>
-                <button><b>Sign in with email</b></button>
+                <button onClick={()=> navigate("/signup")}>
+                    <b>Sign in with email</b></button>
                 <p className='term'>By clicking continue to join, you agreed to <a href=""><b>LinkedIn's User Agreement,
                     </b></a> <a href=""><b>Privacy policy</b></a> and
                 <a href=""><b>Cookie policy</b></a>
                 </p>
-                <p className='term'>New to LinkedIn? <a href=""><b>join now</b></a></p>
+                <p className='term'>New to LinkedIn? <Link to={"/signup"}><b>join now</b></Link></p>
             </div>
             <div className="hero-img">
                 <img src="../../src/assets/hero image.jpg" alt="man holding laptop avatar" />

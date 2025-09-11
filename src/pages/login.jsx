@@ -51,7 +51,7 @@ function Login() {
       localStorage.setItem("user", JSON.stringify(user));
       console.log("loggin successfully");
       // userContext.setUser(user[0]);
-      navigate("/", { replace: true });
+      navigate("/feed", { replace: true });
     } else {
       console.log("invalid credential");
       newErr.password = "Invalid credential";

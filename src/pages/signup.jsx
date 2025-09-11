@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 // import "../styles/landing.scss"
 
 import React, { useState } from 'react'
@@ -128,7 +128,7 @@ else if(formIndex ===1){
                     </b></a> <a href=""><b>Privacy policy</b></a> and
                 <a href=""><b>Cookie policy</b></a>
                 </p>
-              <input type="submit" className="agree" onClick={submit} value={"Agree and join"} />
+              <input type="submit" className="agree" onClick={nextBtn} value={"Agree and join"} />
               <p className="or">or</p>
                 <button className='google'>
                     <p>
@@ -144,7 +144,7 @@ else if(formIndex ===1){
                     <img src="../../src/assets/microsoft.png" alt="google logo" />
                     <b>Continue with microsoft</b>
                 </button>
-                 <p className='term'>Already on LinkedIn? <a href=""><b>Sign in</b></a></p>
+                 <p className='term'>Already on LinkedIn? <Link to={"/login"}><b>Sign-in now</b></Link></p>
                 <p className='term'>Looking to create a page for a business? <a href=""><b>Get help</b></a></p>
 
             </div> :null}
