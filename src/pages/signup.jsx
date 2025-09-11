@@ -1,9 +1,10 @@
-import "../styles/sign-up.scss"
+import { useNavigate } from "react-router-dom"
 // import "../styles/landing.scss"
 
 import React, { useState } from 'react'
 function Signup() {
     const [formIndex,setFormIndex] =useState(0)
+    const navigate =useNavigate()
 const users =localStorage.getItem("users")?JSON.parse(localStorage.getItem("users")):[]
 const [newUser,setNewUser] =useState({
     email:"",
@@ -13,37 +14,37 @@ const [newUser,setNewUser] =useState({
     lname:""
 })
 const [errData, setErrData] = useState({});
+const newErr={}
 
 const handleChange = (e) => {
     const value = e.target.value;
     setNewUser({ ...newUser, [e.target.name]: value }) 
  };
 const nextBtn =()=>{
-    if(email && password){
-        setFormIndex(formIndex + 1)
-        users.push(newUser)
-    }
-    else{
+    if(newUser.email =="" || newUser.password ==""){
         newErr.err ="kindly input your email to sign up"
         setErrData(newErr);
     }
+    else{
+        setFormIndex(formIndex + 1)
+        users.push(newUser) 
+    }
 }
+
+// form validation
 const handleValidation =()=>{
-    const newErr={}
-    if(fname && lname){
+    if(newUser.fname ==''){
         newErr.fname ="kindly input your first name"
     }
-    else if(fname && lname){
+    else if(newUser.lname == ''){
         newErr.lname ="kindly input your last name"
     }
-    else if(
-        newErr.fname ="kindly input your name"
-    )
     setErrData(newErr);
+    users.push(newUser) 
 
 }
 const submit =()=>{
-    handleValidation
+    handleValidation ()
     if(!errData){
         return;
     }
@@ -51,48 +52,69 @@ const submit =()=>{
       ? JSON.parse(localStorage.getItem("users"))
       : [];
 
-    const emailValidation = users.find((item) => item.email == formData.email);
+    const emailValidation = users.find((item) => item.email == newUser.email);
     if (emailValidation) {
       console.log("Email Already Exist");
+      newErr.err ="Email already exist"
+      return;
+    }
+    const lNameValidation = users.find((item) => item.lname == newUser.lname);
+    const fNameValidation = users.find((item) => item.fname == newUser.fname);
+    if (lNameValidation && fNameValidation) {
+      console.log("user Already Exist");
+      newErr.err ="user already exist"
       return;
     }
 
     users.push(newUser);
+    localStorage.setItem("users",JSON.stringify(users))
+    navigate("/login", { replace: true });
+
 }
-// form content
+ // form content
 let formContent;
 if (formIndex ===0){
     formContent = <>
-   <form action="">
+   <form action=""
+        onSubmit={(event) => {
+          event.preventDefault();
+          nextBtn();
+        }}>
    <h2>
     Stay up to date on your Industry .
 </h2>
     <div>
         {errData.email && <span>{errData.email}</span>}
     <label htmlFor="email">Email or phone</label>
-    <input type="text" id="email"onChange={handleChange} value={newUser.email} placeholder='email or phone number'  />
+    <input type="text" required name="email"onChange={handleChange} value={newUser.email} placeholder='email or phone number'  />
     </div>
     <div>
     {errData.password && <span>{errData.password}</span>}
     <label htmlFor="password">password</label>
-    <input type="text" id="password"onChange={handleChange} value={newUser.password} placeholder='password' />
+    <input type="text" required name="password"onChange={handleChange} value={newUser.password} placeholder='password' />
     </div>
-    <input  type="submit" onClick={nextBtn} className="btn" value={"Join now"} />
+    <input type="submit" onClick={nextBtn} className="btn" value={"Join now"} />
 </form></>
 }
 else if(formIndex ===1){
     formContent =<>
-     <form action="">
+     <form action=""
+        onSubmit={(event) => {
+          event.preventDefault();
+          submit();
+        }}>
     <div>
-    {errData.err && <span>{errData.e}</span>}
+    {errData.err && <span style={{color:"red"}}>{errData.err}</span>}
+    {errData.fname && <span style={{color:"red"}}>{errData.fname}</span>}
     <label htmlFor="fname">First name</label>
-    <input type="text" value={newUser.fname} placeholder='First name' onChange={handleChange} />
+    <input type="text" name="fname" value={newUser.fname} placeholder='First name' onChange={handleChange} />
     </div>
     <div>
+    {errData.lname && <span style={{color:"red"}}>{errData.lname}</span>}
     <label htmlFor="lname">Last name</label>
-    <input type="text" value={newUser.lname} placeholder='last name' onChange={handleChange}/>
+    <input type="text" name="lname" value={newUser.lname} placeholder='last name' onChange={handleChange}/>
     </div>
-    <input value={"Continue"} className="btn" style={formIndex ===1? {display:"block"}:{display:"none"}}/>
+    <input type="submit" value={"Continue"} className="btn" style={formIndex ===1? {display:"block"}:{display:"none"}}/>
 </form></>
 }
 
@@ -106,7 +128,7 @@ else if(formIndex ===1){
                     </b></a> <a href=""><b>Privacy policy</b></a> and
                 <a href=""><b>Cookie policy</b></a>
                 </p>
-              <input className="agree" onClick={submit} value={"Agree and join"} />
+              <input type="submit" className="agree" onClick={submit} value={"Agree and join"} />
               <p className="or">or</p>
                 <button className='google'>
                     <p>
